@@ -10,5 +10,6 @@ class HelloWorld(Resource):
 
 api.add_resource(HelloWorld, '/')
 
+#corringindo problema da rede, adicionando host:0.0.0.0
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
