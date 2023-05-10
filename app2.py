@@ -4,12 +4,17 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
-class HelloWorld(Resource):
+class Users(Resource):
     def get(self):
-        return {'hello': 'world'}
+        return {"message": "user 1"}
 
-api.add_resource(HelloWorld, '/')
+class User(Resource):
+    def get(self):
+      return {"message":"teste"}
+
+api.add_resource(Users, '/users')
+api.add_resource(User, '/user')
 
 #corringindo problema da rede, adicionando host:0.0.0.0
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True)
