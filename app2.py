@@ -12,9 +12,12 @@ class User(Resource):
     def get(self):
       return {"message":"teste"}
 
+    def get(self,cpf):
+      return {"message":"CPF"}
+
 api.add_resource(Users, '/users')
-api.add_resource(User, '/user')
+api.add_resource(User, '/user', '/user/<string:cpf>')
 
 #corringindo problema da rede, adicionando host:0.0.0.0
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
